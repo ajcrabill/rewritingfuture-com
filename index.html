@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 50% Journey — Rewriting the Future | airick journey crabill</title>
+  <meta name="description" content="The 50% Journey: Why The Future Doesn't Change, How You Can Rewrite The Future by airick journey crabill. A personal transformation framework for leaders ready to do the work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amber:      #C9922A;
+      --earth:      #2C1810;
+      --cream:      #F9F4EC;
+      --gold:       #E8B84B;
+      --gray:       #8C7B6B;
+      --earth-mid:  #4A2C1A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 400;
+      color: var(--earth);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ── Typography helpers ── */
+    .playfair        { font-family: 'Playfair Display', serif; }
+    .playfair-italic { font-family: 'Playfair Display', serif; font-style: italic; }
+
+    /* ── Sticky Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--earth);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.25rem, 5vw, 3rem);
+      height: 60px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      font-weight: 700;
+      color: var(--cream);
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: clamp(1rem, 3vw, 2.5rem);
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+      font-weight: 600;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      transition: color 0.2s, opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+      opacity: 1;
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--cream);
+      border-radius: 2px;
+      transition: transform 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0; right: 0;
+        background: var(--earth);
+        flex-direction: column;
+        padding: 1.5rem clamp(1.25rem, 5vw, 3rem);
+        gap: 1.25rem;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1rem; }
+    }
+
+    /* ── Section base ── */
+    section { padding: clamp(3.5rem, 8vw, 6rem) clamp(1.25rem, 8vw, 5rem); }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 300;
+      line-height: 1.65;
+      max-width: 720px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-block;
+      padding: 0.8em 2em;
+      border-radius: 4px;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 600;
+      font-size: clamp(0.9rem, 1.8vw, 1rem);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--earth);
+      border: 2px solid var(--gold);
+    }
+    .btn-gold:hover { background: var(--amber); border-color: var(--amber); }
+
+    .btn-outline-cream {
+      background: transparent;
+      color: var(--cream);
+      border: 2px solid var(--cream);
+    }
+    .btn-outline-cream:hover { background: rgba(249,244,236,0.12); }
+
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
+    #hero {
+      background: linear-gradient(135deg, #2C1810 0%, #4A2C1A 60%, #C9922A 100%);
+      padding: clamp(5rem, 12vw, 9rem) clamp(1.25rem, 8vw, 5rem);
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      max-width: 800px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 600;
+      font-size: clamp(0.7rem, 1.4vw, 0.85rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+      opacity: 0.9;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.12;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      color: var(--gold);
+      line-height: 1.5;
+      margin-bottom: 1.6rem;
+      max-width: 680px;
+    }
+
+    .hero-body {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: rgba(249,244,236,0.82);
+      line-height: 1.7;
+      max-width: 620px;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ─────────────────────────────────────────
+       TWO MEANINGS
+    ───────────────────────────────────────── */
+    #the-two-meanings {
+      background: var(--cream);
+    }
+
+    .meanings-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .meanings-cards { grid-template-columns: 1fr; }
+    }
+
+    .meaning-card {
+      border: 2px solid var(--earth);
+      border-radius: 6px;
+      padding: 2.25rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .meaning-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--amber);
+    }
+
+    .meaning-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 700;
+      color: var(--earth);
+      margin-bottom: 1rem;
+      padding-left: 0.5rem;
+    }
+
+    .meaning-card p {
+      font-size: clamp(0.95rem, 1.7vw, 1.05rem);
+      line-height: 1.7;
+      color: var(--earth);
+      font-weight: 300;
+      padding-left: 0.5rem;
+    }
+
+    .meanings-statement {
+      margin-top: 2.75rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      color: var(--earth);
+      text-align: center;
+      border-top: 1px solid rgba(44,24,16,0.15);
+      padding-top: 2rem;
+    }
+
+    /* ─────────────────────────────────────────
+       FOUR BARRIERS
+    ───────────────────────────────────────── */
+    #the-barriers {
+      background: var(--earth);
+      color: var(--cream);
+    }
+
+    #the-barriers .section-title { color: var(--cream); }
+    #the-barriers .section-subtitle { color: rgba(249,244,236,0.78); }
+
+    .barriers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .barriers-grid { grid-template-columns: 1fr; }
+    }
+
+    .barrier-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .barrier-number {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--amber);
+      color: var(--earth);
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .barrier-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .barrier-text p {
+      font-size: clamp(0.9rem, 1.6vw, 1rem);
+      line-height: 1.65;
+      color: rgba(249,244,236,0.82);
+      font-weight: 300;
+    }
+
+    .barriers-statement {
+      margin-top: 3rem;
+      padding: 1.75rem 2rem;
+      border-left: 4px solid var(--amber);
+      background: rgba(201,146,42,0.1);
+      border-radius: 0 6px 6px 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 1.9vw, 1.2rem);
+      color: var(--cream);
+      line-height: 1.6;
+    }
+
+    /* ─────────────────────────────────────────
+       ANCIENT PRETENDINGS
+    ───────────────────────────────────────── */
+    #pretendings {
+      background: var(--cream);
+    }
+
+    .pretendings-rows {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .pretendings-rows { grid-template-columns: 1fr; }
+    }
+
+    .pretendings-group h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 700;
+      color: var(--earth);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--amber);
+    }
+
+    .pretendings-group ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .pretendings-group li {
+      font-size: clamp(0.95rem, 1.7vw, 1.05rem);
+      line-height: 1.55;
+      color: var(--earth);
+      font-weight: 300;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .pretendings-group li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-weight: 700;
+    }
+
+    .pretendings-pull {
+      margin-top: 3rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.1vw, 1.3rem);
+      color: var(--amber);
+      text-align: center;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* ─────────────────────────────────────────
+       THREE SPRINTS
+    ───────────────────────────────────────── */
+    #the-journey {
+      background: var(--earth);
+      color: var(--cream);
+    }
+
+    #the-journey .section-title  { color: var(--cream); }
+    #the-journey .section-subtitle { color: rgba(249,244,236,0.78); }
+
+    .sprints-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .sprints-grid { grid-template-columns: 1fr; }
+    }
+
+    .sprint-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,146,42,0.25);
+      border-radius: 8px;
+      padding: 2rem 1.75rem;
+      position: relative;
+    }
+
+    .sprint-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: rgba(201,146,42,0.18);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      user-select: none;
+    }
+
+    .sprint-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .sprint-card p {
+      font-size: clamp(0.9rem, 1.6vw, 1rem);
+      line-height: 1.7;
+      color: rgba(249,244,236,0.78);
+      font-weight: 300;
+    }
+
+    /* ─────────────────────────────────────────
+       NEXUS
+    ───────────────────────────────────────── */
+    #nexus {
+      background: var(--cream);
+    }
+
+    .nexus-visual {
+      margin: 3rem auto;
+      max-width: 560px;
+      position: relative;
+    }
+
+    /* Three overlapping circles (Venn) drawn in CSS */
+    .venn {
+      width: 100%;
+      aspect-ratio: 1 / 0.85;
+      position: relative;
+    }
+
+    .venn-circle {
+      position: absolute;
+      width: 54%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .venn-circle-top {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(201,146,42,0.22);
+      border: 2px solid var(--amber);
+    }
+
+    .venn-circle-left {
+      bottom: 0;
+      left: 0;
+      background: rgba(44,24,16,0.08);
+      border: 2px solid var(--earth);
+    }
+
+    .venn-circle-right {
+      bottom: 0;
+      right: 0;
+      background: rgba(232,184,75,0.15);
+      border: 2px solid var(--gold);
+    }
+
+    .venn-label {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+      font-weight: 700;
+      color: var(--earth);
+      line-height: 1.3;
+    }
+
+    .venn-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(0.85rem, 1.7vw, 1rem);
+      font-weight: 400;
+      color: var(--amber);
+      text-align: center;
+      z-index: 2;
+      white-space: nowrap;
+    }
+
+    .nexus-statement {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.1vw, 1.3rem);
+      color: var(--earth);
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ─────────────────────────────────────────
+       AUTHOR
+    ───────────────────────────────────────── */
+    #author {
+      background: linear-gradient(135deg, rgba(201,146,42,0.12) 0%, rgba(232,184,75,0.06) 100%);
+      border-top: 1px solid rgba(201,146,42,0.2);
+      border-bottom: 1px solid rgba(201,146,42,0.2);
+    }
+
+    .author-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    #author .section-title { color: var(--earth); }
+
+    .author-story {
+      font-size: clamp(1rem, 1.9vw, 1.15rem);
+      line-height: 1.75;
+      font-weight: 300;
+      color: var(--earth);
+      margin-bottom: 2.5rem;
+    }
+
+    .author-pull {
+      background: var(--earth);
+      color: var(--cream);
+      padding: 2rem 2.25rem;
+      border-radius: 6px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+      line-height: 1.55;
+    }
+
+    .author-pull cite {
+      display: block;
+      margin-top: 1rem;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-style: normal;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.9;
+    }
+
+    /* ─────────────────────────────────────────
+       THE BOOK
+    ───────────────────────────────────────── */
+    #the-book {
+      background: var(--earth);
+      color: var(--cream);
+      text-align: center;
+    }
+
+    #the-book .section-inner { max-width: 760px; }
+
+    .book-eyebrow {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 600;
+      font-size: clamp(0.7rem, 1.4vw, 0.85rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .book-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .book-subtitle-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .book-description {
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      line-height: 1.75;
+      color: rgba(249,244,236,0.82);
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+
+    .book-divider {
+      width: 60px;
+      height: 3px;
+      background: var(--amber);
+      margin: 0 auto 2.5rem;
+      border-radius: 2px;
+    }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    footer {
+      background: var(--earth);
+      border-top: 1px solid rgba(201,146,42,0.25);
+      padding: clamp(2.5rem, 5vw, 4rem) clamp(1.25rem, 8vw, 5rem);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-byline {
+      font-size: 0.9rem;
+      color: rgba(249,244,236,0.55);
+      font-weight: 300;
+    }
+
+    .footer-email-label {
+      font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+      color: rgba(249,244,236,0.78);
+      font-weight: 300;
+      margin-bottom: 1rem;
+      line-height: 1.55;
+    }
+
+    .footer-form {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-input {
+      flex: 1;
+      min-width: 180px;
+      padding: 0.65em 1em;
+      border: 1px solid rgba(201,146,42,0.45);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.06);
+      color: var(--cream);
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .footer-input::placeholder { color: rgba(249,244,236,0.35); }
+    .footer-input:focus { border-color: var(--gold); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 2.5rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(201,146,42,0.15);
+      font-size: 0.8rem;
+      color: rgba(249,244,236,0.35);
+      font-weight: 300;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <a href="#hero" class="nav-logo">The 50% Journey</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#the-two-meanings">The Two Meanings</a></li>
+      <li><a href="#the-journey">The Journey</a></li>
+      <li><a href="#the-barriers">The Barriers</a></li>
+      <li><a href="#the-book">The Book</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">A Personal Transformation Framework</p>
+      <h1 class="hero-title">The future doesn't change<br>on its own.<br>You have to rewrite it.</h1>
+      <p class="hero-subtitle">But most of us are spending 50% of our waking hours — our discretionary minutes — on autopilot.</p>
+      <p class="hero-body">The 50% Journey is a personal transformation framework for leaders who know something needs to change and are ready to do the work.</p>
+      <div class="hero-ctas">
+        <a href="https://amazon.com" class="btn btn-gold">Get the Book →</a>
+        <a href="#the-two-meanings" class="btn btn-outline-cream">Start the Journey →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Two Meanings ── -->
+  <section id="the-two-meanings">
+    <div class="section-inner">
+      <h2 class="section-title playfair" style="color:var(--earth);">Two Meanings of 50%</h2>
+      <div class="meanings-cards">
+
+        <div class="meaning-card">
+          <h3>The Gap</h3>
+          <p>50% is the gap between what we intend to do and what we actually do. Between the life we say we want and the choices we actually make. This gap is not a flaw. It's an opportunity.</p>
+        </div>
+
+        <div class="meaning-card">
+          <h3>The Minutes</h3>
+          <p>50% is also roughly the percentage of your waking hours that are discretionary — not obligated by work or sleep. How you spend those minutes is how you build your future. Or don't.</p>
+        </div>
+
+      </div>
+      <p class="meanings-statement">The Journey starts when you decide to close both gaps at the same time.</p>
+    </div>
+  </section>
+
+  <!-- ── Four Barriers ── -->
+  <section id="the-barriers">
+    <div class="section-inner">
+      <h2 class="section-title playfair">Why Intentions Don't Become Actions</h2>
+      <p class="section-subtitle">Four barriers stand between where you are and where you want to be:</p>
+
+      <div class="barriers-grid">
+
+        <div class="barrier-item">
+          <div class="barrier-number">1</div>
+          <div class="barrier-text">
+            <h3>Knowledge</h3>
+            <p>You don't know what to do differently. The path isn't visible yet.</p>
+          </div>
+        </div>
+
+        <div class="barrier-item">
+          <div class="barrier-number">2</div>
+          <div class="barrier-text">
+            <h3>Skill</h3>
+            <p>You know what to do but haven't built the capacity to do it consistently.</p>
+          </div>
+        </div>
+
+        <div class="barrier-item">
+          <div class="barrier-number">3</div>
+          <div class="barrier-text">
+            <h3>Mindset</h3>
+            <p>You believe something about yourself or the world that makes the change feel impossible or unnecessary.</p>
+          </div>
+        </div>
+
+        <div class="barrier-item">
+          <div class="barrier-number">4</div>
+          <div class="barrier-text">
+            <h3>Identity</h3>
+            <p>The deepest barrier. You don't see yourself as someone who does this. "That's not who I am."</p>
+          </div>
+        </div>
+
+      </div>
+
+      <blockquote class="barriers-statement">
+        Most self-help addresses knowledge. Some addresses skill. Almost none addresses mindset and identity — which is exactly why most self-help doesn't work.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ── Ancient Pretendings ── -->
+  <section id="pretendings">
+    <div class="section-inner">
+      <h2 class="section-title playfair" style="color:var(--earth);">What We Tell Ourselves</h2>
+      <p class="section-subtitle" style="color:var(--gray);">Beneath the four barriers are five ancient pretendings — stories so old they feel like facts:</p>
+
+      <div class="pretendings-rows">
+
+        <div class="pretendings-group">
+          <h3>Outward Pretendings <span style="font-weight:300;font-size:0.85em;">(about the world)</span></h3>
+          <ul>
+            <li>The world is dangerous and getting more so</li>
+            <li>Things are getting worse overall</li>
+            <li>Nothing happens for a reason</li>
+          </ul>
+        </div>
+
+        <div class="pretendings-group">
+          <h3>Inward Pretendings <span style="font-weight:300;font-size:0.85em;">(about yourself)</span></h3>
+          <ul>
+            <li>I am not enough</li>
+            <li>I don't belong</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="pretendings-pull">These aren't beliefs we chose. They're inheritances. The Journey is about examining them — and deciding which ones to keep.</p>
+    </div>
+  </section>
+
+  <!-- ── Three Sprints ── -->
+  <section id="the-journey">
+    <div class="section-inner">
+      <h2 class="section-title playfair">Three 90-Day Sprints</h2>
+      <p class="section-subtitle">The 50% Journey unfolds in three 90-day phases. Not because 90 days is magic — because real behavior change requires sustained attention, not a single decision.</p>
+
+      <div class="sprints-grid">
+
+        <div class="sprint-card">
+          <div class="sprint-number">01</div>
+          <h3>Sprint One — Awareness</h3>
+          <p>Naming your actual current state. Identifying the gap between where you are and where you want to be. Meeting your own pretendings.</p>
+        </div>
+
+        <div class="sprint-card">
+          <div class="sprint-number">02</div>
+          <h3>Sprint Two — Commitment</h3>
+          <p>Choosing the specific behaviors you will change. Building the habits that close the gap. Not motivation — discipline.</p>
+        </div>
+
+        <div class="sprint-card">
+          <div class="sprint-number">03</div>
+          <h3>Sprint Three — Integration</h3>
+          <p>The changed behaviors become who you are. Not "trying to be different" — being different. Identity catches up.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Nexus ── -->
+  <section id="nexus">
+    <div class="section-inner">
+      <h2 class="section-title playfair" style="color:var(--earth);">The Nexus</h2>
+      <p class="section-subtitle" style="color:var(--gray);">Where your life's work lives at the intersection of three things:</p>
+
+      <div class="nexus-visual">
+        <div class="venn" role="img" aria-label="Venn diagram showing Competence, Passion, and Contribution overlapping at the Nexus">
+          <div class="venn-circle venn-circle-top">
+            <span class="venn-label">Competence<br><span style="font-family:'Source Sans Pro',sans-serif;font-size:0.8em;font-weight:300;color:var(--gray);">What you're genuinely good at</span></span>
+          </div>
+          <div class="venn-circle venn-circle-left">
+            <span class="venn-label">Passion<br><span style="font-family:'Source Sans Pro',sans-serif;font-size:0.8em;font-weight:300;color:var(--gray);">What you care about deeply</span></span>
+          </div>
+          <div class="venn-circle venn-circle-right">
+            <span class="venn-label">Contribution<br><span style="font-family:'Source Sans Pro',sans-serif;font-size:0.8em;font-weight:300;color:var(--gray);">What actually serves others</span></span>
+          </div>
+          <div class="venn-center">✦ The Nexus ✦</div>
+        </div>
+      </div>
+
+      <p class="nexus-statement">The Nexus is not found. It's built — through the work of the Journey.</p>
+    </div>
+  </section>
+
+  <!-- ── Author ── -->
+  <section id="author">
+    <div class="section-inner author-inner">
+      <h2 class="section-title playfair">About the Author</h2>
+      <p class="author-story">airick journey crabill was homeless at 17. He became Deputy Commissioner of Education for the state of Texas. The 50% Journey is the framework he developed — not from theory, but from the experience of rewriting his own future, one discretionary minute at a time.</p>
+      <blockquote class="author-pull">
+        "The future I have today isn't the future I was given. It's the future I wrote."
+        <cite>— airick journey crabill</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ── The Book ── -->
+  <section id="the-book">
+    <div class="section-inner">
+      <p class="book-eyebrow">Now Available</p>
+      <h2 class="book-title playfair">The 50% Journey</h2>
+      <p class="book-subtitle-text playfair-italic">Why The Future Doesn't Change, How You Can Rewrite The Future</p>
+      <div class="book-divider"></div>
+      <p class="book-description">A framework for leaders who know they're capable of more — and are ready to do the work of becoming it. The 50% Journey provides the tools, the structure, and the honest examination needed to close the gap between who you are and who you intend to be.</p>
+      <a href="https://amazon.com" class="btn btn-gold">Get the Book →</a>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-inner">
+
+      <div>
+        <p class="footer-brand">The 50% Journey</p>
+        <p class="footer-byline">by airick journey crabill</p>
+      </div>
+
+      <div>
+        <p class="footer-email-label">Start your journey — weekly reflections and tools</p>
+        <form class="footer-form" onsubmit="handleSubscribe(event)">
+          <input type="email" class="footer-input" placeholder="your@email.com" required aria-label="Email address" />
+          <button type="submit" class="btn btn-gold">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+    <p class="footer-bottom">© 2026 airick journey crabill. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', String(open));
+    });
+
+    // Close nav on link click (mobile)
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Email subscribe placeholder
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input[type="email"]');
+      const btn   = e.target.querySelector('button');
+      btn.textContent = 'Thank you!';
+      btn.disabled = true;
+      input.value = '';
+    }
+  </script>
+</body>
+</html>
