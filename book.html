@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 50% Journey — Coming October 2026</title>
+  <meta name="description" content="The 50% Journey by airick journey crabill. Coming October 2026. Enter your email to be notified when it's available." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --amber:     #C9922A;
+      --earth:     #2C1810;
+      --cream:     #F9F4EC;
+      --gold:      #E8B84B;
+      --gray:      #8C7B6B;
+      --earth-mid: #4A2C1A;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 400;
+      color: var(--earth);
+      background: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background: var(--earth);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.25rem, 5vw, 3rem);
+      height: 60px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      font-weight: 700;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(249,244,236,0.7);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--gold); }
+
+    /* HERO */
+    .book-hero {
+      background: linear-gradient(135deg, #2C1810 0%, #4A2C1A 60%, #C9922A 100%);
+      padding: clamp(5rem, 12vw, 9rem) clamp(1.25rem, 8vw, 5rem);
+      text-align: center;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .book-hero-inner { max-width: 680px; margin: 0 auto; }
+
+    .coming-badge {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--earth);
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1.1rem;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+    }
+
+    .book-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .book-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      color: var(--gold);
+      line-height: 1.45;
+      margin-bottom: 0.75rem;
+    }
+
+    .book-author {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: clamp(0.85rem, 1.6vw, 1rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(249,244,236,0.55);
+      margin-bottom: 3rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--amber);
+      margin: 0 auto 2.5rem;
+      border-radius: 2px;
+    }
+
+    .book-blurb {
+      font-size: clamp(1rem, 1.9vw, 1.15rem);
+      line-height: 1.75;
+      color: rgba(249,244,236,0.82);
+      font-weight: 300;
+      margin-bottom: 3rem;
+    }
+
+    /* NOTIFY FORM */
+    .notify-label {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .notify-form {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .notify-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.75em 1.1em;
+      border: 1px solid rgba(201,146,42,0.5);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.07);
+      color: var(--cream);
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .notify-input::placeholder { color: rgba(249,244,236,0.35); }
+    .notify-input:focus { border-color: var(--gold); }
+
+    .btn-gold {
+      display: inline-block;
+      padding: 0.75em 1.75em;
+      border-radius: 4px;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      background: var(--gold);
+      color: var(--earth);
+      border: 2px solid var(--gold);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .btn-gold:hover { background: var(--amber); border-color: var(--amber); transform: translateY(-2px); }
+
+    #notify-success {
+      display: none;
+      margin-top: 1.25rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--gold);
+      line-height: 1.5;
+    }
+
+    .privacy-note {
+      margin-top: 0.9rem;
+      font-size: 0.8rem;
+      color: rgba(249,244,236,0.35);
+      line-height: 1.5;
+    }
+
+    /* WHAT TO EXPECT */
+    .what-section {
+      background: var(--cream);
+      padding: clamp(3.5rem, 8vw, 5rem) clamp(1.25rem, 8vw, 5rem);
+    }
+    .what-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+    .what-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--earth);
+      margin-bottom: 2.5rem;
+    }
+    .what-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .what-card {
+      border: 2px solid var(--earth);
+      border-radius: 6px;
+      padding: 2rem 1.75rem;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+    .what-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--amber);
+    }
+    .what-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--earth);
+      margin-bottom: 0.6rem;
+      padding-left: 0.5rem;
+    }
+    .what-card p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--earth);
+      font-weight: 300;
+      padding-left: 0.5rem;
+    }
+    .back-link {
+      display: inline-block;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--amber);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid rgba(201,146,42,0.4);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .back-link:hover { color: var(--earth); border-color: var(--earth); }
+
+    footer {
+      background: var(--earth);
+      border-top: 1px solid rgba(201,146,42,0.25);
+      padding: 2rem clamp(1.25rem, 8vw, 5rem);
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(249,244,236,0.35);
+      font-weight: 300;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">The 50% Journey</a>
+    <a href="/" class="nav-back">← Back</a>
+  </nav>
+
+  <div class="book-hero">
+    <div class="book-hero-inner">
+      <span class="coming-badge">Coming October 2026</span>
+      <h1 class="book-title">The 50% Journey</h1>
+      <p class="book-subtitle">Why The Future Doesn't Change,<br>How You Can Rewrite The Future</p>
+      <p class="book-author">by airick journey crabill</p>
+      <div class="divider"></div>
+      <p class="book-blurb">A personal transformation framework for leaders who know something needs to change — and are ready to do the work of becoming who they intend to be. Three 90-day sprints. Five ancient pretendings. One honest examination of the gap between the life you're living and the life you're capable of.</p>
+
+      <p class="notify-label">Be the first to know when it's available.</p>
+      <form class="notify-form" id="notify-form">
+        <input type="email" class="notify-input" name="email" placeholder="your@email.com" required aria-label="Email address" />
+        <input type="hidden" name="form" value="rewritingfuture-book-notify" />
+        <button type="submit" class="btn-gold">Notify Me</button>
+      </form>
+      <p id="notify-success">You're on the list. We'll let you know the moment it's available.</p>
+      <p class="privacy-note">No spam. Just the announcement when the book drops.</p>
+    </div>
+  </div>
+
+  <section class="what-section">
+    <div class="what-inner">
+      <h2>What the book covers</h2>
+      <div class="what-grid">
+        <div class="what-card">
+          <h3>Awareness</h3>
+          <p>Naming your actual current state. Meeting your own pretendings — the inherited stories so old they feel like facts.</p>
+        </div>
+        <div class="what-card">
+          <h3>Acknowledgement</h3>
+          <p>Sitting with what awareness revealed. Owning your pretendings without judgment or excuses — before reaching for change.</p>
+        </div>
+        <div class="what-card">
+          <h3>Aligned Action</h3>
+          <p>Choosing specific behaviors and building the habits that close the gap between who you are and who you intend to be.</p>
+        </div>
+      </div>
+      <a href="/" class="back-link">← Return to rewritingfuture.com</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 airick journey crabill. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('notify-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn  = form.querySelector('button');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      fetch('https://formspree.io/f/xayzdydv', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      })
+      .then(r => {
+        if (r.ok) {
+          form.style.display = 'none';
+          document.querySelector('.notify-label').style.display = 'none';
+          document.getElementById('notify-success').style.display = 'block';
+        } else {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+        }
+      })
+      .catch(() => {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      });
+    });
+  </script>
+</body>
+</html>
