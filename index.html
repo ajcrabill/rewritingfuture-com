@@ -776,7 +776,7 @@
       <p class="hero-subtitle">But most of us are spending 50% of our waking hours — our discretionary minutes — on autopilot.</p>
       <p class="hero-body">The 50% Journey is a personal transformation framework for leaders who know something needs to change and are ready to do the work.</p>
       <div class="hero-ctas">
-        <a href="https://amazon.com" class="btn btn-gold">Get the Book →</a>
+        <a href="/book.html" class="btn btn-gold">Get the Book →</a>
         <a href="#the-two-meanings" class="btn btn-outline-cream">Start the Journey →</a>
       </div>
     </div>
@@ -878,7 +878,7 @@
 
       </div>
 
-      <p class="pretendings-pull">These aren't beliefs we chose. They're inheritances. The Journey is about examining them — and deciding which ones to keep.</p>
+      <p class="pretendings-pull">These aren't beliefs we chose. They're inheritances. The Journey is about examining them — and choosing what to do next.</p>
     </div>
   </section>
 
@@ -898,14 +898,14 @@
 
         <div class="sprint-card">
           <div class="sprint-number">02</div>
-          <h3>Sprint Two — Commitment</h3>
-          <p>Choosing the specific behaviors you will change. Building the habits that close the gap. Not motivation — discipline.</p>
+          <h3>Sprint Two — Acknowledgement</h3>
+          <p>Sitting with what the awareness revealed. Not rushing past it. Owning your pretendings — without judgment, without excuses.</p>
         </div>
 
         <div class="sprint-card">
           <div class="sprint-number">03</div>
-          <h3>Sprint Three — Integration</h3>
-          <p>The changed behaviors become who you are. Not "trying to be different" — being different. Identity catches up.</p>
+          <h3>Sprint Three — Aligned Action</h3>
+          <p>Choosing specific behaviors and building the habits that close the gap. The changed behaviors become who you are — not trying to be different, but being different.</p>
         </div>
 
       </div>
@@ -952,12 +952,12 @@
   <!-- ── The Book ── -->
   <section id="the-book">
     <div class="section-inner">
-      <p class="book-eyebrow">Now Available</p>
+      <p class="book-eyebrow">Coming October 2026</p>
       <h2 class="book-title playfair">The 50% Journey</h2>
       <p class="book-subtitle-text playfair-italic">Why The Future Doesn't Change, How You Can Rewrite The Future</p>
       <div class="book-divider"></div>
       <p class="book-description">A framework for leaders who know they're capable of more — and are ready to do the work of becoming it. The 50% Journey provides the tools, the structure, and the honest examination needed to close the gap between who you are and who you intend to be.</p>
-      <a href="https://amazon.com" class="btn btn-gold">Get the Book →</a>
+      <a href="/book.html" class="btn btn-gold">Notify Me When It's Available →</a>
     </div>
   </section>
 
@@ -972,10 +972,12 @@
 
       <div>
         <p class="footer-email-label">Start your journey — weekly reflections and tools</p>
-        <form class="footer-form" onsubmit="handleSubscribe(event)">
-          <input type="email" class="footer-input" placeholder="your@email.com" required aria-label="Email address" />
+        <form class="footer-form" id="subscribe-form">
+          <input type="email" class="footer-input" name="email" placeholder="your@email.com" required aria-label="Email address" />
+          <input type="hidden" name="form" value="rewritingfuture-subscribe" />
           <button type="submit" class="btn btn-gold">Subscribe</button>
         </form>
+        <p id="subscribe-success" style="display:none;margin-top:0.75rem;color:var(--gold);font-size:0.9rem;">You're in — we'll be in touch.</p>
       </div>
 
     </div>
@@ -1000,15 +1002,33 @@
       });
     });
 
-    // Email subscribe placeholder
-    function handleSubscribe(e) {
+    // Footer subscribe → Formspree
+    document.getElementById('subscribe-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      const input = e.target.querySelector('input[type="email"]');
-      const btn   = e.target.querySelector('button');
-      btn.textContent = 'Thank you!';
+      const form = e.target;
+      const btn  = form.querySelector('button');
+      btn.textContent = 'Sending…';
       btn.disabled = true;
-      input.value = '';
-    }
+      fetch('https://formspree.io/f/xayzdydv', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      })
+      .then(r => {
+        if (r.ok) {
+          form.style.display = 'none';
+          document.getElementById('subscribe-success').style.display = 'block';
+        } else {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+        }
+      })
+      .catch(() => {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      });
+    });
   </script>
 </body>
 </html>
+
